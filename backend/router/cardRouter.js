@@ -14,9 +14,9 @@ router.post('/cards', async (req, res) => {
       }
 
       const newCard = new card({ title, description });
-      const addedCard = await newCard.save();
-      console.log(addedCard);
-      res.status(201).json(addedCard);
+      const addCard = await newCard.save();
+      console.log(addCard);
+      res.status(201).json(addCard);
   } catch (error) {
       console.log("error :- ", error);
       res.status(400).json({ message: error.message });
@@ -26,8 +26,8 @@ router.post('/cards', async (req, res) => {
 
   router.get('/cards', async (req, res) => {
     try {
-      const getcards = await card.find();
-      res.json(getcards);
+      const getCard = await card.find();
+      res.json(getCard);
     } catch (error) {
         console.log("error :- ", error)
         res.status(500).json({ message: error.message });
